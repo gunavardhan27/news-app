@@ -1,10 +1,26 @@
 import {React,Suspense} from 'react'
-import {Notifications,GroupAdd,Login,Category} from '@mui/icons-material'
-import { FaSearch } from "react-icons/fa";
+import {Notifications,GroupAdd,Login,Category,Logout, LogoDevRounded, LogoutTwoTone, LoginTwoTone} from '@mui/icons-material'
+import { FaSearch} from "react-icons/fa";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 const Header = () => {
   const navigate = useNavigate()
+  const user=true
+  const logout = async ()=>{
+    const url = 'http://localhost:3000/auth/logout'
+    const response = await fetch(url,{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+    },
+    credentials:'include',
+    })
+    if(localStorage){
+    localStorage.removeItem('user')
+    navigate('/login')
+    window.location.reload();
+    }
+  }
   function goTo(){
     navigate('/search')
   }
@@ -15,7 +31,7 @@ const Header = () => {
           <FaSearch className='' onClick={goTo} />
           <Notifications className='' />
           <Category onClick={()=>navigate('/categories')} />
-          <Login />
+          {user ? <LogoutTwoTone onClick={logout} /> :<LoginTwoTone />}
         </div>
     </div>
   )

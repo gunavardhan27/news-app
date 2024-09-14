@@ -1,17 +1,23 @@
 import express from 'express'
 const app = express()
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 import { connectToDb } from './db/connectDb.js'
 import { fetchData } from './fetch.js'
 const port = 3000
 import newsRouter from './routes/news.route.js'
+import authRouter from './routes/user.route.js'
 import { News } from './models/newsModel.js'
+import cookieJwtAuth from './middleware/cookiejwt.js'
 app.listen(port,()=>{
     console.log(`server is live on ${port}`)
     connectToDb()
 })
 app.use(cors({origin: 'http://localhost:5173',credentials:true}));
+
+app.use(cookieParser())
 app.use(express.json())
+
 async function handleData(){
 try{
     const {data,category} = await fetchData()
@@ -32,7 +38,8 @@ try{
 }
 }
 
-app.use('/api',newsRouter)
+app.use('/api',cookieJwtAuth,newsRouter)
+app.use('/auth',authRouter)
 
 
 //handleData()

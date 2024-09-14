@@ -22,7 +22,7 @@ export const allNews = async (req,res)=>{
 export const categories = async (req,res)=>{
     try{
         const query = await req.query.id
-        const data = await News.find({category:query})
+        const data = await News.find({category:query}) 
         console.log('guna',data)
         return res.status(200).json({data:data})
     }catch(error){
