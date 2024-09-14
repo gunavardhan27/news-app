@@ -12,7 +12,7 @@ const Search = () => {
         navigate(`/${data.title}`,{state:{news:data}})
     }
     const fetchData = async ()=>{
-        const url = 'http://localhost:3000/api/news'
+        const url = 'https://news-app-btd9.onrender.com/api/news'
         const response = await fetch(url,{
             method:'GET',
             headers: {

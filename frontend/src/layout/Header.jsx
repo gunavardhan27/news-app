@@ -7,7 +7,7 @@ const Header = () => {
   const navigate = useNavigate()
   const user=true
   const logout = async ()=>{
-    const url = 'http://localhost:3000/auth/logout'
+    const url = 'https://news-app-btd9.onrender.com/auth/logout'
     const response = await fetch(url,{
       method:'POST',
       headers:{

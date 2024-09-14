@@ -11,9 +11,10 @@ const Auth = () => {
   const username = useInputValidation("")
   const bio = useInputValidation("")
   const password = useStrongPassword()
+  //const url = 'https://news-app-btd9.onrender.com/'
   const handleLogin = async (event)=>{
     event.preventDefault()
-    const url = 'http://localhost:3000/auth/login'
+    const url = 'https://news-app-btd9.onrender.com/auth/login'
     const response = await fetch(url,{
         method:'POST',
         headers:{
@@ -44,7 +45,7 @@ const Auth = () => {
 
   const handleSignUp = async (event)=>{
     event.preventDefault()
-    const url = 'http://localhost:3000/auth/registerUser'
+    const url = 'https://news-app-btd9.onrender.com/auth/registerUser'
     const response = await fetch(url,{
         method:'POST',
         headers:{
