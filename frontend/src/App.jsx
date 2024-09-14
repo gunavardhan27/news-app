@@ -1,12 +1,13 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom"
-import Home from "./components/Home"
-import Header from "./layout/Header"
-import { Suspense } from "react"
-import InDetail from "./components/InDetail"
-import Search from "./components/Search"
-import Category from "./components/Category"
-import SelectedCategory from "./components/SelectedCategory"
-import Auth from "./components/Auth"
+import { Suspense,lazy } from "react"
+const Header = lazy(() => import("./layout/Header"));
+//import Header from "./layout/Header"
+const Home = lazy(() => import("./components/Home"));
+const InDetail = lazy(() => import("./components/InDetail"));
+const Search = lazy(() => import("./components/Search"));
+const Category = lazy(() => import("./components/Category"));
+const SelectedCategory = lazy(() => import("./components/SelectedCategory"));
+const Auth = lazy(() => import("./components/Auth"));
 
 import ProtectedRoute from "./utils/ProtectedRoute"
 function App() {
