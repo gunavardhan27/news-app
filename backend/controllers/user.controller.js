@@ -1,6 +1,6 @@
 import {User} from '../models/userModel.js'
 import asyncHandler from 'express-async-handler'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 export const registerUser = asyncHandler(async (req,res)=>{
     const {username,email,password,confirmPassword} = req.body
