@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useInputValidation,useStrongPassword } from '6pp'
 import { useNavigate } from 'react-router-dom'
-//import { usernameValidator } from '../utils/validator'
 const Auth = () => {
   const [Login,setLogin] = useState(false)
   const handle = ()=>{
