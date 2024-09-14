@@ -16,7 +16,7 @@ const Home = () => {
         async function getData(){
         const url = `http://localhost:3000/api/breakingNews?id=${page}`
         const response = await fetch(url,{
-             mode: 'cors',
+             //mode: 'cors',
             method:'GET',
             headers: {
                 'Content-Type': 'application/json',
