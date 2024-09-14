@@ -16,6 +16,7 @@ const Auth = () => {
     event.preventDefault()
     const url = 'https://news-app-btd9.onrender.com/auth/login'
     const response = await fetch(url,{
+       mode: 'cors',
         method:'POST',
         headers:{
             'Content-Type':'application/json'
@@ -47,6 +48,7 @@ const Auth = () => {
     event.preventDefault()
     const url = 'https://news-app-btd9.onrender.com/auth/registerUser'
     const response = await fetch(url,{
+       mode: 'cors',
         method:'POST',
         headers:{
             'Content-Type':'application/json'

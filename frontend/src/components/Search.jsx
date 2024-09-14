@@ -14,6 +14,7 @@ const Search = () => {
     const fetchData = async ()=>{
         const url = 'https://news-app-btd9.onrender.com/api/news'
         const response = await fetch(url,{
+             mode: 'cors',
             method:'GET',
             headers: {
                 'Content-Type': 'application/json',

@@ -9,6 +9,7 @@ const Header = () => {
   const logout = async ()=>{
     const url = 'https://news-app-btd9.onrender.com/auth/logout'
     const response = await fetch(url,{
+       mode: 'cors',
       method:'POST',
       headers:{
         'Content-Type':'application/json'
