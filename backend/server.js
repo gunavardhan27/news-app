@@ -13,7 +13,7 @@ app.listen(port,()=>{
     console.log(`server is live on ${port}`)
     connectToDb()
 })
-app.use(cors({origin:'https://news-app-frontend-gamma.vercel.app',credentials:true}));
+app.use(cors({origin:'https://news-app-frontend-gamma.vercel.app',credentials:true,origin:true}));
 
 app.use(cookieParser())
 app.use(express.json())
