@@ -50,9 +50,10 @@ export const allUsers = (async (req,res)=>{
 })
 
 export const loginUser = async (req,res)=>{
-    const {username,password} = req.body
+    const {username,password} = await req.body
+    console.log(username, password)
     const user = await User.findOne({username})
-    if(user && (await bcrypt.compare(password,user.password))){
+    if(user && (bcrypt.compare(password,user.password))){
         const token = jwt.sign(user.toJSON(),process.env.ACCESS_TOKEN_SECRET,{expiresIn:'1hr'})
         //console.log(await jwt.verify(token,process.env.ACCESS_TOKEN_SECRET))
         res.cookie('token',token,{

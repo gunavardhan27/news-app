@@ -7,9 +7,9 @@ const Header = () => {
   const navigate = useNavigate()
   const user=true
   const logout = async ()=>{
-    const url = 'https://news-app-btd9.onrender.com/auth/logout'
+    const url = 'http://localhost:3000/auth/logout'
     const response = await fetch(url,{
-       //mode: 'cors',
+      mode: 'cors',
       method:'POST',
       headers:{
         'Content-Type':'application/json'

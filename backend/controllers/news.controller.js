@@ -9,24 +9,29 @@ export const breakingNews = async (req,res) =>{
     return res.status(200).json({data:data})
 }
 
-export const allNews = async (req,res)=>{
-    try{
-        const data = await News.find({})
-        return res.status(200).json({data:data})
-    }catch(error){
-        return res.json(error)
-    }
-    
-}
+export const allNews = (req, res) => {
+    News.find({})
+      .then((data) => {
+        if (data && data.length > 0) {
+          return res.status(200).json({ data });
+        } else {
+          return res.status(404).json({ message: 'No data found' });
+        }
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+        return res.status(500).json({ message: 'Error fetching data' });
+      });
+  };
+  
 
 export const categories = async (req,res)=>{
-    try{
-        const query = await req.query.id
-        const data = await News.find({category:query}) 
-        console.log('guna',data)
-        return res.status(200).json({data:data})
-    }catch(error){
-        console.log(error)
-        return res.json(error)
-    }
+    const query = await req.query.id
+    News.find({category:query}).then((data)=>{
+        if(data && data.length > 0){
+         return res.status(200).json({data:data})   
+        }
+    }).catch((err)=>{
+        return res.json({message:err})
+    })
 }

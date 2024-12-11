@@ -14,9 +14,9 @@ const Auth = () => {
   //const url = 'https://news-app-btd9.onrender.com/'
   const handleLogin = async (event)=>{
     event.preventDefault()
-    const url = 'https://news-app-btd9.onrender.com/auth/login'
+    const url = 'http://localhost:3000/auth/login'
     const response = await fetch(url,{
-       //mode: 'cors',
+        mode: 'cors',
         method:'POST',
         headers:{
             'Content-Type':'application/json'
@@ -46,9 +46,9 @@ const Auth = () => {
 
   const handleSignUp = async (event)=>{
     event.preventDefault()
-    const url = 'https://news-app-btd9.onrender.com/auth/registerUser'
+    const url = 'http://localhost:3000/auth/registerUser'
     const response = await fetch(url,{
-       //mode: 'cors',
+       mode: 'cors',
         method:'POST',
         headers:{
             'Content-Type':'application/json'
